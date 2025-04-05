@@ -79,6 +79,27 @@ ffmpeg -i input.mp4 -r 30 output.mp4
 
 ---
 
+## HE-AAC Audio Codec
+
+HE-AAC (High-Efficiency AAC) is an advanced audio codec known for delivering high-quality audio at lower bitrates. Here’s how you can use it in FFmpeg:
+
+### Convert Audio to HE-AAC
+
+```bash
+ffmpeg -i input.mp4 -c:a libfdk_aac -b:a 64k output.mp4
+```
+
+- `-c:a libfdk_aac`: Specifies the HE-AAC codec (via the Fraunhofer FDK AAC library).
+- `-b:a 64k`: Sets the audio bitrate to 64 kbps (adjustable as needed).
+
+> **Note**: The `libfdk_aac` encoder provides excellent HE-AAC quality but must be enabled when FFmpeg is built. If unavailable, you can use `aac` as a fallback:
+
+```bash
+ffmpeg -i input.mp4 -c:a aac -b:a 64k output.mp4
+```
+
+---
+
 ## Advanced Conversion Features
 
 ### Convert Video for a Specific Device
@@ -145,11 +166,8 @@ ffmpeg -i input.mp4 -c:v h264_qsv output.mp4
 
 - [FFmpeg Official Documentation](https://ffmpeg.org/documentation.html)
 - [Codec Guides](https://trac.ffmpeg.org/wiki/Encode/H.264)
+- [HE-AAC Overview](https://en.wikipedia.org/wiki/High-Efficiency_Advanced_Audio_Coding)
 
 ---
 
-Feel free to explore these commands and tweak them as needed for your "video-conversion" branch. Let me know if you'd like additional features or details added! 🚀
-
-```
-
-```
+Feel free to use this updated README.md file for the "video-conversion" branch. Let me know if you’d like further refinements or additions! 🚀
